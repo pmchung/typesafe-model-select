@@ -3,7 +3,7 @@ Select properties from a model while retaining original types
 
 
 ## Example
-```
+```ts
 interface User {
   name: string;
   amount?: number;
@@ -25,6 +25,7 @@ interface User {
 const select = {
   name: true,
   email: true,
+  unknownProp: true, // Type error -- cannot select unknown property
   password: true,
   amount: true,
   nestedArr: {
@@ -44,9 +45,9 @@ user.nestedArr?.[0].zz; // Optional chaining to access nested array property
 
 ## Nested properties
 
-Nested model properties in the `User` interface can be further extracted:
+Nested object properties in the `User` interface can be further extracted:
 
-```
+```ts
 const select = {
   nested: {
     a: true,
@@ -58,8 +59,8 @@ const select = {
 }
 ```
 
-Properties within array of models can be selected with a similar object:
-```
+Properties within array of objects can be selected with a similar object:
+```ts
 interface Monster {
   type: {
     element: boolean,
