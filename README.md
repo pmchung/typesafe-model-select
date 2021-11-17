@@ -39,7 +39,7 @@ const user = {} as SelectModel<User, typeof select>;
 user.nestedArr[0].a; // Object is possibly 'undefined'.
 user.password.length // Object is possibly 'undefined'.
 user.amount.toExponential // Object is possibly 'undefined'
-user.name.length //
+user.name.length // 👍
 user.nestedArr?.[0].zz; // Optional chaining to access nested array property
 ```
 
